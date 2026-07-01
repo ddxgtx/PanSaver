@@ -1,0 +1,13 @@
+services:
+  pansave:
+    build: .
+    container_name: pansave
+    restart: unless-stopped
+    ports:
+      - "5632:5632"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - PANSAVE_MODE=server
